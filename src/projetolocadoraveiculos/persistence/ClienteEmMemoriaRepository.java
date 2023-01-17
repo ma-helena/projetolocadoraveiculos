@@ -1,14 +1,11 @@
 package projetolocadoraveiculos.persistence;
 
 import projetolocadoraveiculos.model.Cliente;
-import projetolocadoraveiculos.model.Entidade;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class ClienteEmMemoriaRepository extends RepositorioGenericoAbstract <Cliente> implements ClienteRepository {
+public class ClienteEmMemoriaRepository extends RepositoryGenericoEmMemoria<Cliente> implements ClienteRepository {
 
     @Override
     public List<Cliente> buscarPeloNome(String parteNome) { // cria a lista verifica se tods os clientes possuem parte do nome e adiciona à cliente

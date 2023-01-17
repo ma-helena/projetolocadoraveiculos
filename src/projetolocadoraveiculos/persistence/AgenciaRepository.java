@@ -7,5 +7,8 @@ public interface AgenciaRepository  {
 
         List<Agencia> buscarPeloLogradouro (String parteLogradouro);
 
-    }
+    void salvar(Agencia novaAgencia);
+
+    boolean buscarPeloId(String nome);
+}
 

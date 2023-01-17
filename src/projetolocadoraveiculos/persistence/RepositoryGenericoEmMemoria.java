@@ -1,16 +1,15 @@
 package projetolocadoraveiculos.persistence;
 
-import projetolocadoraveiculos.model.Cliente;
 import projetolocadoraveiculos.model.Entidade;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class RepositorioGenericoAbstract <T extends Entidade>  implements RepositoryGenerico <T> {
+public class RepositoryGenericoEmMemoria<T extends Entidade>  implements RepositoryGenerico <T> {
 
     protected Map<String,T> entidades;
 
-    public RepositorioGenericoAbstract() {
+    public RepositoryGenericoEmMemoria() {
         this.entidades = new HashMap<>();
     }
 
