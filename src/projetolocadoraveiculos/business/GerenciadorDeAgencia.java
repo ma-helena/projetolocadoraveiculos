@@ -2,12 +2,15 @@ package projetolocadoraveiculos.business;
 
 import projetolocadoraveiculos.exception.RegistroDuplicadoException;
 import projetolocadoraveiculos.model.Agencia;
-import projetolocadoraveiculos.persistence.AgenciaEmMemoriaRepository;
 import projetolocadoraveiculos.persistence.AgenciaRepository;
 
 public class GerenciadorDeAgencia {
 
-    AgenciaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
+    private final AgenciaRepository agenciaRepository ;
+
+    public GerenciadorDeAgencia(AgenciaRepository agenciaRepository) {
+        this.agenciaRepository = agenciaRepository;
+    }
     // manipulaçao da agência, cumprir as regras de negocio
 
     public Agencia criarAgencia(String nome, String logradouro){
@@ -17,6 +20,9 @@ public class GerenciadorDeAgencia {
         Agencia novaAgencia = new Agencia(nome, logradouro);
         agenciaRepository.salvar(novaAgencia);
         return novaAgencia;
+    }
+    public Agencia buscarAgenciaPorNome (String nome){
+        return  agenciaRepository.buscarPeloId(nome);
     }
     public boolean existeAgencia(String nome){
         return agenciaRepository.buscarPeloId(nome) != null; // checar
