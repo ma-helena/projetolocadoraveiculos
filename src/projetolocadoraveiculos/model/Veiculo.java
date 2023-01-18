@@ -1,5 +1,7 @@
 package projetolocadoraveiculos.model;
 
+import java.util.Collection;
+
 public class Veiculo implements Entidade {
     private String placa;
     private String modelo;
@@ -18,5 +20,9 @@ public class Veiculo implements Entidade {
     @Override
     public String getId() {
         return placa;
+    }
+
+    public String getModelo() {
+        return modelo;
     }
 }
