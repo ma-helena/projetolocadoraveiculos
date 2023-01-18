@@ -6,7 +6,7 @@ import projetolocadoraveiculos.persistence.AgenciaRepository;
 
 public class GerenciadorDeAgencia {
 
-    private final AgenciaRepository agenciaRepository ;
+    private final AgenciaRepository agenciaRepository ;//uso de apenas um repositório da agência
 
     public GerenciadorDeAgencia(AgenciaRepository agenciaRepository) {
         this.agenciaRepository = agenciaRepository;
