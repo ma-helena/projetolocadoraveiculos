@@ -5,8 +5,10 @@ public class MenuGeral extends MenuComSubmenus{
         super(descricao);
     }
 
+
     @Override
-    public void agir() {
-        super.agir();
+    protected void acao() {
+        super.acao();
+        this.agir();
     }
 }

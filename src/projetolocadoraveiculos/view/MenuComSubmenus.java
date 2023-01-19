@@ -11,13 +11,10 @@ public class MenuComSubmenus extends MenuAbstrato {
         super(descricao);
     }
 
-    @Override
-    public void agir() {
-        exibirComSeparador();
-        exibirSubmenus();
-        Menu menu = selecionarSubmenu();
+    protected void acao(){
+        exibirSubmenus();;
+        Menu menu  = selecionarSubmenu();
         menu.agir();
-
     }
 
     public void exibirSubmenus(){
@@ -44,6 +41,7 @@ public class MenuComSubmenus extends MenuAbstrato {
     }
 
     public void adicionarSubmenu(Menu menu){
+
         submenus.put(String.valueOf(submenus.size()), menu);
     }
 
@@ -54,6 +52,7 @@ public class MenuComSubmenus extends MenuAbstrato {
     }
 
     private void exibirComSepador(){
+
         System.out.printf("xxxxxxxxxxxxxxxxxxxxxxxx");
     }
 }
