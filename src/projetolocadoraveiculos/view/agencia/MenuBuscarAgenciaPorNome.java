@@ -10,7 +10,7 @@ public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
     public MenuBuscarAgenciaPorNome(GerenciadorDeAgencia gerenciadorDeAgencia) {
         super("Buscar agência por nome");
 
-        this.gerenciadorDeAgencia = gerenciadorDeAgencia1;
+        this.gerenciadorDeAgencia = gerenciadorDeAgencia;
     }
     @Override
     public void acao() {
