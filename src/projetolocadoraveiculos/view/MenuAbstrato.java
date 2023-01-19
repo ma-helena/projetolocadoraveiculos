@@ -12,7 +12,7 @@ public abstract class MenuAbstrato  implements Menu{
     }
 
     @Override
-    public final void exibir() {
+    public void exibir() {
         System.out.println(descricao);
 
     }
@@ -22,18 +22,17 @@ public abstract class MenuAbstrato  implements Menu{
         exibirComSeparador();
         acao();
 
-
     }
 
-    protected  void acao() {
-    }
+    protected  abstract void acao();
 
     private void exibirComSeparador() {
+        exibirSeparador();
         exibir();
-        exibirComSeparador();
+        exibirSeparador();
     }
 
    private void exibirSeparador(){
-       System.out.println("xxxxxxxxxxxxxx");
+       System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
    }
 }
