@@ -5,6 +5,8 @@ import projetolocadoraveiculos.model.Agencia;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
+import java.util.List;
+
 
 public class MenuListarAgencia extends MenuAbstrato {
     private final GerenciadorDeAgencia gerenciadorDeAgencia;
@@ -15,13 +17,17 @@ public class MenuListarAgencia extends MenuAbstrato {
     }
     @Override
     public void acao() {
-        String nome=  CapturadorDeEntrada.capturarString("nome da agência buscada");
-        if ((!gerenciadorDeAgencia.existeAgencia(nome))){
-            System.out.println("Não existe agência com o nome: "+ nome);
+        List<Agencia> agencias = gerenciadorDeAgencia.listarAgencias();
+
+        if (agencias.isEmpty()){
+            System.out.println("Não há agência cadastrada. ");
             return;
         }
-        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
-        System.out.println("Agência encontrada " + agencia);
+        System.out.println("Agências encontradas: ");
+
+        for (Agencia agencia: agencias){
+            System.out.println(agencia);
+        }
     }
 
 }

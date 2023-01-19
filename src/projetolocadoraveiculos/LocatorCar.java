@@ -14,7 +14,7 @@ public class LocatorCar {
     public static void main(String[] args) {
         AgenciaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
         GerenciadorDeAgencia gerenciadorDeAgencia = new GerenciadorDeAgencia(agenciaRepository);
-        Agencia agencia = gerenciadorDeAgencia.criarAgencia("Ag1", "Jp");
+//        Agencia agencia = gerenciadorDeAgencia.criarAgencia("Ag1", "Jp");
 
         MenuAgenciasFactory menuAgenciasFactory = new MenuAgenciasFactory(gerenciadorDeAgencia);
         Menu menuGeral = new MenuGeralFactory(menuAgenciasFactory).create();
