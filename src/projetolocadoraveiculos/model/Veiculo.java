@@ -13,7 +13,7 @@ public class Veiculo implements Entidade {
         this.placa = placa;
         this.modelo = modelo;
         this.fabricante = fabricante;
-        this.disponivel = disponivel;
+        this.disponivel = true;
         this.tipoveiculo = tipoveiculo;
     }
 
@@ -24,5 +24,24 @@ public class Veiculo implements Entidade {
 
     public String getModelo() {
         return modelo;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public TipoVeiculo getTipoveiculo() {
+        return tipoveiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", fabricante='" + fabricante + '\'' +
+                ", disponivel=" + disponivel +
+                ", tipoveiculo=" + tipoveiculo +
+                '}';
     }
 }

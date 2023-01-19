@@ -4,11 +4,13 @@ import projetolocadoraveiculos.exception.RegistroDuplicadoException;
 import projetolocadoraveiculos.model.Agencia;
 import projetolocadoraveiculos.persistence.AgenciaRepository;
 
+import java.util.List;
 public class GerenciadorDeAgencia {
 
     private final AgenciaRepository agenciaRepository ;//uso de apenas um repositório da agência
 
     public GerenciadorDeAgencia(AgenciaRepository agenciaRepository) {
+
         this.agenciaRepository = agenciaRepository;
     }
     // manipulaçao da agência, cumprir as regras de negocio
@@ -26,8 +28,11 @@ public class GerenciadorDeAgencia {
         return  agenciaRepository.buscarPeloId(nome);
     }
     public boolean existeAgencia(String nome){
-        return agenciaRepository.buscarPeloId(nome) != null; // checar
+        return agenciaRepository.buscarPeloId(nome) != null;
 
+    }
+    public  List<Agencia> listarAgencias(){
+        return agenciaRepository.todos();
     }
 
 }

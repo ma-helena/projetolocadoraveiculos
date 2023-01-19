@@ -15,6 +15,7 @@ public class Agencia implements Entidade {
     }
 
     public String getNome(){
+
         return nome;
     }
 

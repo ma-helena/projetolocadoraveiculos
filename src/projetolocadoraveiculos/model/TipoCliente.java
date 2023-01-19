@@ -1,15 +1,18 @@
 package projetolocadoraveiculos.model;
 
-public class TipoCliente {
+import java.math.BigDecimal;
+
+public class TipoCliente implements Entidade{
     private String descricao;
-    private String desconto;
+    private BigDecimal desconto;
     private int quantidadeDiasParaDesconto;
 
-    public TipoCliente(String descricao, String desconto, int quantidadeDiasParaDesconto) {
+    public TipoCliente(String descricao, BigDecimal desconto, int quantidadeDiasParaDesconto) {
         this.descricao = descricao;
         this.desconto = desconto;
         this.quantidadeDiasParaDesconto = quantidadeDiasParaDesconto;
     }
+
 
     @Override
     public String toString() {
@@ -18,5 +21,10 @@ public class TipoCliente {
                 ", desconto='" + desconto + '\'' +
                 ", quantidadeDiasParaDesconto=" + quantidadeDiasParaDesconto +
                 '}';
+    }
+
+    @Override
+    public String getId() {
+        return descricao;
     }
 }

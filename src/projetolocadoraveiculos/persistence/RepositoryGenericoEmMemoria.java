@@ -2,7 +2,9 @@ package projetolocadoraveiculos.persistence;
 
 import projetolocadoraveiculos.model.Entidade;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RepositoryGenericoEmMemoria<T extends Entidade>  implements RepositoryGenerico <T> {
@@ -35,6 +37,11 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
     @Override
     public T buscarPeloId(String identificador) {
         return entidades.get(identificador);
+    }
+
+    @Override
+    public List<T> todos() {
+        return new ArrayList<>(entidades.values());
     }
 
 

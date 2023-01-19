@@ -5,10 +5,11 @@ import projetolocadoraveiculos.model.Agencia;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
-public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
+
+public class MenuListarAgencia extends MenuAbstrato {
     private final GerenciadorDeAgencia gerenciadorDeAgencia;
-    public MenuBuscarAgenciaPorNome(GerenciadorDeAgencia gerenciadorDeAgencia) {
-        super("Buscar agência por nome");
+    public MenuListarAgencia(GerenciadorDeAgencia gerenciadorDeAgencia) {
+        super("Listar as agências do catálogo");
 
         this.gerenciadorDeAgencia = gerenciadorDeAgencia;
     }
@@ -17,7 +18,7 @@ public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
         String nome=  CapturadorDeEntrada.capturarString("nome da agência buscada");
         if ((!gerenciadorDeAgencia.existeAgencia(nome))){
             System.out.println("Não existe agência com o nome: "+ nome);
-           return;
+            return;
         }
         Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
         System.out.println("Agência encontrada " + agencia);

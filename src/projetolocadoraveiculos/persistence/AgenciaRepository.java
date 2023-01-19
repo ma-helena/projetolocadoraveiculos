@@ -9,5 +9,6 @@ public interface AgenciaRepository extends RepositoryGenerico<Agencia>  {
         List<Agencia> buscarPeloNome (String parteNome);
 
 
+
 }
 
