@@ -27,4 +27,10 @@ public class AgenciaEmMemoriaRepository  extends RepositoryGenericoEmMemoria<Age
      }
      return agenciaComParteDesseNome;
     }
+
+
+//    @Override
+//    public List<Agencia> todos() {
+//        return null;
+//    }
 }
