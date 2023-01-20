@@ -2,20 +2,25 @@ package projetolocadoraveiculos.view;
 
 import projetolocadoraveiculos.view.agencia.MenuAgenciasFactory;
 import projetolocadoraveiculos.view.aluguel.MenuAluguelFactory;
+import projetolocadoraveiculos.view.veiculo.MenuVeiculosFactory;
 import projetolocadoraveiculos.view.cliente.MenuClientesFactory;
 
 public class MenuGeralFactory implements MenuFactory {
     private final MenuAgenciasFactory  menuAgenciasFactory;
     private final MenuAluguelFactory menuAluguelFactory;
+    private final MenuVeiculosFactory menuVeiculosFactory;
     private final MenuClientesFactory menuClientesFactory;
+    
     public MenuGeralFactory(
             MenuAgenciasFactory menuAgenciasFactory,
             MenuAluguelFactory menuAluguelFactory,
-            MenuClientesFactory menuClientesFactory
+            MenuClientesFactory menuClientesFactory,
+            MenuVeiculosFactory menuVeiculosFactory
     ) {
         this.menuAgenciasFactory = menuAgenciasFactory;
         this.menuAluguelFactory = menuAluguelFactory;
         this.menuClientesFactory = menuClientesFactory;
+        this.menuVeiculosFactory = menuVeiculosFactory;
     }
 
     @Override
@@ -30,6 +35,9 @@ public class MenuGeralFactory implements MenuFactory {
 
         Menu menuAluguel = menuAluguelFactory.create();
         menuGeral.adicionarSubmenu(menuAluguel);
+
+        Menu menuVeiculos = menuVeiculosFactory.create();
+        menuGeral.adicionarSubmenu(menuVeiculos);
 
         Menu menuSair = new MenuSaida();
         menuGeral.adicionarSubmenu(menuSair);

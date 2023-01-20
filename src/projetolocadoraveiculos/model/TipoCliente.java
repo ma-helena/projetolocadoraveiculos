@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class TipoCliente implements Entidade{
     private TipoClienteEnum tipo;
     private BigDecimal desconto;
+
     private int quantidadeDiasParaDesconto;
 
     public TipoCliente(TipoClienteEnum tipo) {
@@ -18,7 +19,6 @@ public class TipoCliente implements Entidade{
             this.desconto = BigDecimal.valueOf(0.10);
             this.quantidadeDiasParaDesconto = 3;
         }
-
     }
 
     public BigDecimal getDesconto() {

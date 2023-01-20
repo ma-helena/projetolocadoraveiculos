@@ -27,9 +27,7 @@ public class MenuAlterarAgencia extends MenuAbstrato {
 
 
         String logradouro = CapturadorDeEntrada.capturarString("Informe o logradouro da agância a ser alterado");
-
-        //gerenciadorDeAgencia.removerAgencia(agencia);
-        //agencia = gerenciadorDeAgencia.criarAgencia(nome, logradouro);
+        
         gerenciadorDeAgencia.alterarAgencia(nome, logradouro);
 
         System.out.println("Agência alterada com sucesso");

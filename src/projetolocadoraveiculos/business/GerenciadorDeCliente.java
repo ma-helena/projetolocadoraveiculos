@@ -1,5 +1,6 @@
 package projetolocadoraveiculos.business;
 
+
 import projetolocadoraveiculos.exception.RegistroDuplicadoException;
 import projetolocadoraveiculos.model.Cliente;
 import projetolocadoraveiculos.model.TipoCliente;
