@@ -19,7 +19,7 @@ public class MenuClientesFactory implements MenuFactory {
         Menu menuAdicionarCliente = new MenuAdicionarCliente(gerenciadorDeCliente);
         menuClientes.adicionarSubmenu(menuAdicionarCliente);
 
-        Menu menuBuscarClientePorNome = new MenuBuscarClientePorNome(gerenciadorDeCliente);
+        Menu menuBuscarClientePorNome = new MenuBuscarClientePorDocumento(gerenciadorDeCliente);
         menuClientes.adicionarSubmenu(menuBuscarClientePorNome);
 
         Menu menuListarClientes = new MenuListarTodosClientes(gerenciadorDeCliente);
