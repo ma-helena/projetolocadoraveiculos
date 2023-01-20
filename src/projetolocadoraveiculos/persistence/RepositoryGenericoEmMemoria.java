@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RepositoryGenericoEmMemoria<T extends Entidade>  implements RepositoryGenerico <T> {
-
-    protected Map<String,T> entidades;
+    protected Map<String, T> entidades;
 
     public RepositoryGenericoEmMemoria() {
         this.entidades = new HashMap<>();
@@ -17,21 +16,18 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
 
     @Override
     public void salvar(T entidade) {
-        // salva e atualiza o cliente
-//       Cliente clienteEncontrado = this.buscarPeloId(cliente.getDocumento());
-//       if(clienteEncontrado!=null){
-//           remover(clienteEncontrado);
-//       }
+//        Cliente clienteEncontrado = this.buscarPeloId(cliente.getDocumento());
+//        if (clienteEncontrado != null) {
+//            remover(clienteEncontrado);
+//        }
 //        this.clientes.add(cliente);
 
         this.entidades.put(entidade.getId(), entidade);
-
     }
 
     @Override
     public void remover(T entidade) {
         this.entidades.remove(entidade);
-
     }
 
     @Override
@@ -43,6 +39,4 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
     public List<T> todos() {
         return new ArrayList<>(entidades.values());
     }
-
-
 }

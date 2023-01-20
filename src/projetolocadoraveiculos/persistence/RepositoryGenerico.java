@@ -1,6 +1,7 @@
 package projetolocadoraveiculos.persistence;
 
 import projetolocadoraveiculos.model.Agencia;
+import projetolocadoraveiculos.model.Veiculo;
 
 import java.util.List;
 
