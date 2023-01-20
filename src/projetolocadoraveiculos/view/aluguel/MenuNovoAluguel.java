@@ -11,6 +11,8 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import static projetolocadoraveiculos.model.TipoClienteEnum.PF;
+
 public class MenuNovoAluguel extends MenuAbstrato{
 
 
@@ -27,7 +29,7 @@ public class MenuNovoAluguel extends MenuAbstrato{
     public void acao() {
        String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
        //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
-        TipoCliente tipoCliente = new TipoCliente("PF", BigDecimal.valueOf(5), 7);
+        TipoCliente tipoCliente = new TipoCliente(PF);
         Cliente cliente = new Cliente("teste", idCliente, tipoCliente);
        String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
        // veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
