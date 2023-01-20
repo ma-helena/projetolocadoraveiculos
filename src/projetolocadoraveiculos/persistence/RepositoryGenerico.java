@@ -1,5 +1,9 @@
 package projetolocadoraveiculos.persistence;
 
+import projetolocadoraveiculos.model.Agencia;
+
+import java.util.List;
+
 public interface RepositoryGenerico <T> {
 
     void salvar(T entidade);
@@ -7,10 +11,7 @@ public interface RepositoryGenerico <T> {
     void remover(T entidade);
 
     T buscarPeloId(String identificador);
-<<<<<<< Updated upstream
-=======
 
     List<T> todos();
->>>>>>> Stashed changes
 
 }
