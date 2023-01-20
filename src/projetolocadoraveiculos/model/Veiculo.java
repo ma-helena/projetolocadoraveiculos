@@ -18,7 +18,6 @@ public class Veiculo implements Entidade {
         this.disponível = true;
     }
 
-
     @Override
     public String getId() {
         return placa;

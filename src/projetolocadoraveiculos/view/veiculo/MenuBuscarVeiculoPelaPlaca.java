@@ -25,9 +25,9 @@ public class MenuBuscarVeiculoPelaPlaca extends MenuAbstrato {
             return;
         }
 
-        List<Veiculo> veiculos = gerenciadorDeVeiculo.buscarVeiculoPelaPlaca(placa);
+        //List<Veiculo> veiculos = gerenciadorDeVeiculo.buscarVeiculoPelaPlaca(placa);
         System.out.println("Veiculo encontrado:");
-        System.out.println(veiculos);
+       // System.out.println(veiculos);
 
     }
 }

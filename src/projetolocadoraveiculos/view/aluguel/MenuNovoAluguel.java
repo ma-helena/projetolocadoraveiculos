@@ -27,15 +27,15 @@ public class MenuNovoAluguel extends MenuAbstrato{
 
     @Override
     public void acao() {
-       String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
-       //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
+        String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
+        //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
         TipoCliente tipoCliente = new TipoCliente(PF);
         Cliente cliente = new Cliente("teste", idCliente, tipoCliente);
-       String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
-       // veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
-       TipoVeiculo tipoVeiculo = new TipoVeiculo("Carro", BigDecimal.valueOf(150));
-       //Veiculo veiculo = new Veiculo(placa, "modelo", "fabricante", true, tipoVeiculo);
-       String agenciaRetiradaId = "";
+        String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
+        //veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
+        TipoVeiculo tipoVeiculo = new TipoVeiculo(TipoVeiculoEnum.CAMINHAO);
+        Veiculo veiculo = new Veiculo(placa, "modelo", "fabricante", tipoVeiculo);
+        String agenciaRetiradaId = "";
         boolean existeAgencia = false;
         while (!existeAgencia) {
            agenciaRetiradaId = CapturadorDeEntrada.capturarString("Agência de Retirada");

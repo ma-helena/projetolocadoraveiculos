@@ -4,6 +4,7 @@ import java.util.List;
 
 import projetolocadoraveiculos.exception.RegistroDuplicadoException;
 import projetolocadoraveiculos.model.TipoVeiculo;
+import projetolocadoraveiculos.model.TipoVeiculoEnum;
 import projetolocadoraveiculos.model.Veiculo;
 import projetolocadoraveiculos.persistence.VeiculoRepository;
 
@@ -31,8 +32,8 @@ public class GerenciadorDeVeiculo {
         return novoVeiculo;
     }
 
-    public List<Veiculo> buscarVeiculoPelaPlaca(String placa) {
-        return veiculoRepository.buscarVeiculoPelaPlaca(placa);
+    public Veiculo buscarVeiculoPelaPlaca(String placa) {
+        return veiculoRepository.buscarPeloId(placa);
     }
 
         public  List<Veiculo> listarVeiculos(){
@@ -43,4 +44,13 @@ public class GerenciadorDeVeiculo {
         return  veiculoRepository.buscarPeloId(nome);
     }
 
+    public void remover(Veiculo veiculo) {
+        veiculoRepository.remover(veiculo);
+    }
+
+    public Veiculo alterarVeiculo(String placa, String modelo, String fabricante, TipoVeiculo tipoVeiculo) {
+        Veiculo veiculoAlterado = new Veiculo(placa, modelo, fabricante, tipoVeiculo);
+        veiculoRepository.salvar(veiculoAlterado);
+        return veiculoAlterado;
+    }
 }

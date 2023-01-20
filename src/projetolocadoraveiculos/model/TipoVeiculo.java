@@ -4,25 +4,34 @@ import java.math.BigDecimal;
 
 public class TipoVeiculo implements Entidade{
     
-    private String descricao;
+    private TipoVeiculoEnum descricao;
 
     private BigDecimal tarifa;
 
-    public TipoVeiculo(String descricao, BigDecimal tarifa) {
+    public TipoVeiculo(TipoVeiculoEnum descricao) {
         this.descricao = descricao;
-        this.tarifa = tarifa;
+
+        if(descricao == TipoVeiculoEnum.CAMINHAO) {
+            this.tarifa = BigDecimal.valueOf(200);
+        }
+        if(descricao == TipoVeiculoEnum.CARRO) {
+            this.tarifa = BigDecimal.valueOf(150);
+        }
+        if(descricao == TipoVeiculoEnum.MOTO) {
+            this.tarifa = BigDecimal.valueOf(100);
+        }
     }
 
     @Override
     public String getId() {
+        return descricao.toString();
+    }
+
+    public TipoVeiculoEnum getDescricao() {
         return descricao;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
+    public void setDescricao(TipoVeiculoEnum descricao) {
         this.descricao = descricao;
     }
 

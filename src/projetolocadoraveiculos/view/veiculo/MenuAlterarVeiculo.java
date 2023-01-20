@@ -1,39 +1,33 @@
-package projetolocadoraveiculos.view.agencia;
+package projetolocadoraveiculos.view.veiculo;
 
-import projetolocadoraveiculos.business.GerenciadorDeAgencia;
-import projetolocadoraveiculos.model.Agencia;
+import projetolocadoraveiculos.business.GerenciadorDeVeiculo;
+import projetolocadoraveiculos.model.TipoVeiculo;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
-public class MenuAlterarAgencia extends MenuAbstrato {
+public class MenuAlterarVeiculo extends MenuAbstrato {
 
-    private final GerenciadorDeAgencia gerenciadorDeAgencia;
+    GerenciadorDeVeiculo gerenciadorDeVeiculo;
 
-    public MenuAlterarAgencia(GerenciadorDeAgencia gerenciadorDeAgencia) {
-        super("Alterar agência");
-        this.gerenciadorDeAgencia = gerenciadorDeAgencia;
+    MenuAlterarVeiculo(GerenciadorDeVeiculo gerenciadorDeVeiculo) {
+        super("Alterar Veiculo");
+        this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
     }
 
-
-
     @Override
-    public void acao() {
-        String nome=  CapturadorDeEntrada.capturarString("nome da agência a ser alterado");
-        while ((!gerenciadorDeAgencia.existeAgencia(nome))){
-            System.out.println("Agência com o "+ nome+ " não existe");
-            nome=  CapturadorDeEntrada.capturarString("nome da agência para alteração");
+    protected void acao() {
+        String placa = CapturadorDeEntrada.capturarString("placa do veiculo");
+        while (!gerenciadorDeVeiculo.existeVeiculo(placa)) {
+            System.out.println("Não existe um veiculo com a placa " + placa);
+            placa = CapturadorDeEntrada.capturarString("placa do novo");
         }
-        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
 
+        String modelo = CapturadorDeEntrada.capturarString("modelo do veiculo");
+        String fabricante = CapturadorDeEntrada.capturarString("fabricante do veiculo");
 
-        String logradouro = CapturadorDeEntrada.capturarString("Informe o logradouro da agância a ser alterado");
-
-        gerenciadorDeAgencia.removerAgencia(agencia);
-        agencia = gerenciadorDeAgencia.criarAgencia(nome, logradouro);
-
-
-        System.out.println("Agência alterada com sucesso");
-        System.out.println("Agência: " + agencia);
-//ss
+        TipoVeiculo tipoVeiculo = MenuTipoVeiculo.capturarTipoVeiculo();
+               
+        gerenciadorDeVeiculo.alterarVeiculo(placa, modelo, fabricante, tipoVeiculo);
+        System.out.println("Novo veiculo adicionado:");
     }
 }

@@ -1,7 +1,6 @@
 package projetolocadoraveiculos.view.veiculo;
 
 import projetolocadoraveiculos.business.GerenciadorDeVeiculo;
-import projetolocadoraveiculos.business.GerenciadorTipoVeiculo;
 import projetolocadoraveiculos.view.veiculo.MenuListarTodosVeiculos;
 import projetolocadoraveiculos.view.MenuComSubmenus;
 import projetolocadoraveiculos.view.MenuFactory;
@@ -10,25 +9,30 @@ import projetolocadoraveiculos.view.Menu;
 public class MenuVeiculosFactory implements MenuFactory {
     
     private final GerenciadorDeVeiculo gerenciadorDeVeiculo;
-    private final GerenciadorTipoVeiculo gerenciadorTipoVeiculo;
-
-    public MenuVeiculosFactory(GerenciadorDeVeiculo gerenciadorDeVeiculo, GerenciadorTipoVeiculo gerenciadorTipoVeiculo) {
+    
+    public MenuVeiculosFactory(GerenciadorDeVeiculo gerenciadorDeVeiculo) {
         this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
-        this.gerenciadorTipoVeiculo = gerenciadorTipoVeiculo;
     }
 
     @Override
     public Menu create() {
         MenuComSubmenus menuVeiculos = new MenuComSubmenus("Menu Veiculos");
 
-        Menu menuAdicionarVeiculo = new MenuAdicionarVeiculo(gerenciadorDeVeiculo, gerenciadorTipoVeiculo);
+        Menu menuAdicionarVeiculo = new MenuAdicionarVeiculo(gerenciadorDeVeiculo);
         menuVeiculos.adicionarSubmenu(menuAdicionarVeiculo);
 
-        Menu menuBuscarVeiculoPeloNome = new MenuBuscarVeiculoPelaPlaca(gerenciadorDeVeiculo);
-        menuVeiculos.adicionarSubmenu(menuBuscarVeiculoPeloNome);
+        Menu menuBuscarVeiculoPelaPlaca = new MenuBuscarVeiculoPelaPlaca(gerenciadorDeVeiculo);
+        menuVeiculos.adicionarSubmenu(menuBuscarVeiculoPelaPlaca);
 
         Menu menuListarTodosVeiculos = new MenuListarTodosVeiculos(gerenciadorDeVeiculo);
         menuVeiculos.adicionarSubmenu(menuListarTodosVeiculos);
+            
+        Menu menuBuscarVeiculoPorNome = new MenuBuscarVeiculoPorNome(gerenciadorDeVeiculo);
+        menuVeiculos.adicionarSubmenu(menuBuscarVeiculoPorNome);
+
+        Menu menuAlterarVeiculo = new MenuAlterarVeiculo(gerenciadorDeVeiculo);
+        menuVeiculos.adicionarSubmenu(menuAlterarVeiculo);
+
         return menuVeiculos;
     }
 }

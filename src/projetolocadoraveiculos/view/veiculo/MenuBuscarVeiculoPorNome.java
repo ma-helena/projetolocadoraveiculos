@@ -1,26 +1,26 @@
-package projetolocadoraveiculos.view.agencia;
+package projetolocadoraveiculos.view.veiculo;
 
-import projetolocadoraveiculos.business.GerenciadorDeAgencia;
-import projetolocadoraveiculos.model.Agencia;
+import projetolocadoraveiculos.business.GerenciadorDeVeiculo;
+import projetolocadoraveiculos.model.Veiculo;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
-public class MenuBuscarAgenciaPorNome extends MenuAbstrato {
-    private final GerenciadorDeAgencia gerenciadorDeAgencia;
-    public MenuBuscarAgenciaPorNome(GerenciadorDeAgencia gerenciadorDeAgencia) {
-        super("Buscar agência por nome");
+public class MenuBuscarVeiculoPorNome extends MenuAbstrato {
+    private final GerenciadorDeVeiculo gerenciadorDeVeiculo;
+    public MenuBuscarVeiculoPorNome(GerenciadorDeVeiculo gerenciadorDeVeiculo) {
+        super("Buscar veículo por nome");
 
-        this.gerenciadorDeAgencia = gerenciadorDeAgencia;
+        this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
     }
     @Override
     public void acao() {
-        String nome=  CapturadorDeEntrada.capturarString("nome da agência buscada");
-        if ((!gerenciadorDeAgencia.existeAgencia(nome))){
-            System.out.println("Não existe agência com o nome: "+ nome);
+        String nome =  CapturadorDeEntrada.capturarString("nome da veículo a ser buscado");
+        if ((!gerenciadorDeVeiculo.existeVeiculo(nome))){
+            System.out.println("Não existe veículo com o nome: "+ nome);
            return;
         }
-        Agencia agencia = gerenciadorDeAgencia.buscarAgenciaPorNome(nome);
-        System.out.println("Agência encontrada " + agencia);
+        Veiculo veiculo = gerenciadorDeVeiculo.buscarVeiculoPorNome(nome);
+        System.out.println("Veículo encontrada " + veiculo);
     }
 
 }
