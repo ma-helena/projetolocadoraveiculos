@@ -21,6 +21,13 @@ public class TipoCliente implements Entidade{
 
     }
 
+    public BigDecimal getDesconto() {
+        return desconto;
+    }
+
+    public int getQuantidadeDiasParaDesconto() {
+        return quantidadeDiasParaDesconto;
+    }
 
     @Override
     public String toString() {

@@ -22,7 +22,7 @@ public class GerenciadorDeCliente {
         clienteRepository.salvar(novoCliente);
         return novoCliente;
     }
-    public Cliente buscarClientePorNome (String nome){
+    public Cliente buscarClientePorId(String nome){
 
         return  clienteRepository.buscarPeloId(nome);
     }
