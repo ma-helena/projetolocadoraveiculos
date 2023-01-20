@@ -23,6 +23,15 @@ public class GerenciadorDeAgencia {
         agenciaRepository.salvar(novaAgencia);
         return novaAgencia;
     }
+
+    public Agencia alterarAgencia(String nome, String logradouro){
+        if (!existeAgencia(nome)) {
+            System.out.println("Agencia informada não existe");;
+        }
+        Agencia agenciaAlterada = new Agencia(nome, logradouro);
+        agenciaRepository.salvar(agenciaAlterada);
+        return agenciaAlterada;
+    }
     public Agencia buscarAgenciaPorNome (String nome){
 
         return  agenciaRepository.buscarPeloId(nome);
