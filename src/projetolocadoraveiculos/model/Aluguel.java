@@ -29,13 +29,13 @@ public class Aluguel implements Entidade{
     @Override
     public String toString() {
         return "Aluguel" +
-                "\nid=" + id +
-                ", \ncliente=" + cliente +
-                ", \nveiculo=" + veiculo +
-                ", \nagenciaRetirada=" + agenciaRetirada +
-                ", \nagenciaDevolucao=" + agenciaDevolucao +
-                ", \ndataRetirada=" + dataRetirada +
-                ", \ndataDevolucao=" + dataDevolucao +
+                "\nid: " + id +
+                ", \ncliente: " + cliente +
+                ", \nveiculo: " + veiculo +
+                ", \nagenciaRetirada: " + agenciaRetirada +
+                ", \nagenciaDevolucao: " + agenciaDevolucao +
+                ", \ndataRetirada: " + dataRetirada +
+                ", \ndataDevolucao: " + dataDevolucao +
                 '}';
     }
 }
