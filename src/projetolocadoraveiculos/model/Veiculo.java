@@ -6,23 +6,80 @@ public class Veiculo implements Entidade {
     private String placa;
     private String modelo;
     private String fabricante;
-    private boolean disponivel;
-    private TipoVeiculo tipoveiculo;
 
-    public Veiculo(String placa, String modelo, String fabricante, boolean disponivel, TipoVeiculo tipoveiculo) {
+    private boolean disponível;
+    private TipoVeiculo tipo;
+
+    public Veiculo(String placa, String modelo, String fabricante, TipoVeiculo tipo) {
         this.placa = placa;
         this.modelo = modelo;
         this.fabricante = fabricante;
+<<<<<<< Updated upstream
         this.disponivel = disponivel;
         this.tipoveiculo = tipoveiculo;
+=======
+        this.tipo = tipo;
+        this.disponível = true;
+>>>>>>> Stashed changes
     }
+
 
     @Override
     public String getId() {
         return placa;
     }
 
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
     public String getModelo() {
         return modelo;
     }
+<<<<<<< Updated upstream
+=======
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public boolean isDisponível() {
+        return disponível;
+    }
+
+    public void setDisponível(boolean disponível) {
+        this.disponível = disponível;
+    }
+
+    public TipoVeiculo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoVeiculo tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", fabricante='" + fabricante + '\'' +
+                ", disponível=" + disponível +
+                ", tipo=" + tipo +
+                '}';
+    }
+>>>>>>> Stashed changes
 }

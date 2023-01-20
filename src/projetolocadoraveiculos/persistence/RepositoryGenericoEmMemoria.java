@@ -5,9 +5,9 @@ import projetolocadoraveiculos.model.Entidade;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RepositoryGenericoEmMemoria<T extends Entidade>  implements RepositoryGenerico <T> {
+public class RepositoryGenericoEmMemoria<T extends Entidade> implements RepositoryGenerico<T> {
 
-    protected Map<String,T> entidades;
+    protected Map<String, T> entidades;
 
     public RepositoryGenericoEmMemoria() {
         this.entidades = new HashMap<>();
@@ -15,21 +15,18 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
 
     @Override
     public void salvar(T entidade) {
-        // salva e atualiza o cliente
-//       Cliente clienteEncontrado = this.buscarPeloId(cliente.getDocumento());
-//       if(clienteEncontrado!=null){
-//           remover(clienteEncontrado);
-//       }
+//        Cliente clienteEncontrado = this.buscarPeloId(cliente.getDocumento());
+//        if (clienteEncontrado != null) {
+//            remover(clienteEncontrado);
+//        }
 //        this.clientes.add(cliente);
 
         this.entidades.put(entidade.getId(), entidade);
-
     }
 
     @Override
     public void remover(T entidade) {
         this.entidades.remove(entidade);
-
     }
 
     @Override
@@ -37,5 +34,12 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
         return entidades.get(identificador);
     }
 
+<<<<<<< Updated upstream
 
+=======
+    @Override
+    public List<T> todos() {
+        return new ArrayList<>(entidades.values());
+    }
+>>>>>>> Stashed changes
 }
