@@ -5,6 +5,8 @@ import projetolocadoraveiculos.model.Agencia;
 import projetolocadoraveiculos.persistence.AgenciaRepository;
 
 import java.util.List;
+import java.util.Map;
+
 public class GerenciadorDeAgencia {
 
     private final AgenciaRepository agenciaRepository ;//uso de apenas um repositório da agência
@@ -23,6 +25,10 @@ public class GerenciadorDeAgencia {
         agenciaRepository.salvar(novaAgencia);
         return novaAgencia;
     }
+    public void removerAgencia(Agencia agencia){
+        agenciaRepository.remover(agencia);
+    }
+
     public Agencia buscarAgenciaPorNome (String nome){
 
         return  agenciaRepository.buscarPeloId(nome);
@@ -34,9 +40,11 @@ public class GerenciadorDeAgencia {
     public  List<Agencia> listarAgencias(){
         return agenciaRepository.todos();
     }
-    public void removerAgencia(Agencia agencia){
-        agenciaRepository.remover(agencia);
+    public Agencia buscarAgenciaPorId(String nome) {
+        return agenciaRepository.buscarPeloId(nome);
     }
- ///teste
+
+
+
 
 }
