@@ -56,11 +56,7 @@ public class MenuNovoAluguel extends MenuAbstrato{
 
        Agencia agenciaDevolucao = gerenciadorDeAgencia.buscarAgenciaPorNome(agenciaDevolucaoId);
        boolean ok = false;
-       Integer dia;
-       Integer mes;
-       Integer ano;
-       Integer hora;
-       Integer minuto;
+       Integer dia, mes, ano, hora, minuto;
        LocalDateTime dataRetirada = LocalDateTime.now();
        do {
            try {
@@ -91,10 +87,11 @@ public class MenuNovoAluguel extends MenuAbstrato{
                System.out.println("Data/Horário informado não é valido. Digite novamente");
                ok = false; }
        } while (!ok);
-       //Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, dataDevolucao);
-
+       Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, dataDevolucao);
+       //aluguel.setValorTotal(gerenciadorDeAluguel.calculaTotalAluguel(dataRetirada, dataDevolucao, cliente.getTipoCliente(), veiculo.getTipoveiculo()));
+       aluguel.setValorTotal(gerenciadorDeAluguel.calculaTotalAluguel(dataRetirada, dataDevolucao, tipoCliente, veiculo.getTipoveiculo()));
        System.out.println("Aluguel iniciado com sucesso.");
-       //System.out.println(aluguel);
+       gerenciadorDeAluguel.imprimirComprovante(aluguel);
 
     }
 }
