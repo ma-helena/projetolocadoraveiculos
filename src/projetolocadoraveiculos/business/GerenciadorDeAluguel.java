@@ -41,8 +41,8 @@ public class GerenciadorDeAluguel {
         Duration duration = Duration.between(dataRetirada, dataDevolucao);
         double periodo = Math.ceil((double)duration.getSeconds()/86400);
         totalAluguel = BigDecimal.valueOf(periodo).multiply(tarifa);
-        BigDecimal desconto = new BigDecimal(10);
-        int diasDesconto = 10;
+        BigDecimal desconto = tipoCliente.getDesconto();
+        int diasDesconto = tipoCliente.getQuantidadeDiasParaDesconto();
         if (periodo > diasDesconto)
             totalAluguel = totalAluguel.multiply (BigDecimal.valueOf(1).subtract(desconto));
         return (totalAluguel);
