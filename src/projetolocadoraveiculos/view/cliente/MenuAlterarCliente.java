@@ -17,23 +17,17 @@ public class MenuAlterarCliente extends MenuAbstrato {
 
     @Override
     public void acao() {
-        String nome= CapturadorDeEntrada.capturarString("nome do cliente a ser alterado");
-        while ((!gerenciadorDeCliente.existeCliente(nome))){
-            System.out.println("Cliente "+ nome+ " não existe");
-            nome = CapturadorDeEntrada.capturarString("nome do cliente a ser alterado");
+        String documento= CapturadorDeEntrada.capturarString("Documento do cliente a ser alterado");
+        while ((!gerenciadorDeCliente.existeCliente(documento))){
+            System.out.println("Cliente "+ documento+ " não existe");
+            documento = CapturadorDeEntrada.capturarString("Documento do cliente a ser alterado");
         }
 
-        Cliente cliente = gerenciadorDeCliente.buscarClientePorNome(nome);
+        Cliente cliente = gerenciadorDeCliente.buscarClientePorId(documento);
 
         gerenciadorDeCliente.removerCliente(cliente);
 
-        String documento = CapturadorDeEntrada.capturarString("Informe numero do documento");
-        while ((gerenciadorDeCliente.existeCliente(documento))){
-            System.out.println("Cliente com numero de documento "+ documento+ " ja existe");
-            documento = CapturadorDeEntrada.capturarString("Informe numero do documento");
-        }
-
-        nome = CapturadorDeEntrada.capturarString("Informe o nome do cliente");
+        String nome = CapturadorDeEntrada.capturarString("Informe o nome do cliente");
 
         TipoCliente tipoCliente = MenuTipoCliente.capturarTipoCliente();
 

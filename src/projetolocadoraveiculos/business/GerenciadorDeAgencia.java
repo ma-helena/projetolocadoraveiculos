@@ -7,13 +7,12 @@ import projetolocadoraveiculos.persistence.AgenciaRepository;
 import java.util.List;
 public class GerenciadorDeAgencia {
 
-    private final AgenciaRepository agenciaRepository ;//uso de apenas um repositório da agência
+    private final AgenciaRepository agenciaRepository ;
 
     public GerenciadorDeAgencia(AgenciaRepository agenciaRepository) {
 
         this.agenciaRepository = agenciaRepository;
     }
-    // manipulaçao da agência, cumprir as regras de negocio
 
     public Agencia criarAgencia(String nome, String logradouro){
         if (existeAgencia(nome)) {
@@ -26,7 +25,7 @@ public class GerenciadorDeAgencia {
 
     public Agencia alterarAgencia(String nome, String logradouro){
         if (!existeAgencia(nome)) {
-            System.out.println("Agencia informada não existe");;
+            System.out.println("Agencia informada não existe");
         }
         Agencia agenciaAlterada = new Agencia(nome, logradouro);
         agenciaRepository.salvar(agenciaAlterada);
@@ -46,5 +45,4 @@ public class GerenciadorDeAgencia {
     public void removerAgencia(Agencia agencia){
         agenciaRepository.remover(agencia);
     }
- ///teste
 }

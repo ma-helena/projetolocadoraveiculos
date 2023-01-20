@@ -2,6 +2,8 @@ package projetolocadoraveiculos.view.aluguel;
 
 import projetolocadoraveiculos.business.GerenciadorDeAgencia;
 import projetolocadoraveiculos.business.GerenciadorDeAluguel;
+import projetolocadoraveiculos.business.GerenciadorDeCliente;
+import projetolocadoraveiculos.business.GerenciadorDeVeiculo;
 import projetolocadoraveiculos.model.*;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
@@ -18,23 +20,36 @@ public class MenuNovoAluguel extends MenuAbstrato{
 
     private final GerenciadorDeAluguel gerenciadorDeAluguel;
     private final GerenciadorDeAgencia gerenciadorDeAgencia;
+    private final GerenciadorDeCliente gerenciadorDeCliente;
 
-    public MenuNovoAluguel(String descricao, GerenciadorDeAluguel gerenciadorDeAluguel, GerenciadorDeAgencia gerenciadorDeAgencia) {
+    private final GerenciadorDeVeiculo gerenciadorDeVeiculo;
+
+    public MenuNovoAluguel(String descricao, GerenciadorDeAluguel gerenciadorDeAluguel, GerenciadorDeAgencia gerenciadorDeAgencia, GerenciadorDeCliente gerenciadorDeCliente, GerenciadorDeVeiculo gerenciadorDeVeiculo) {
         super(descricao);
         this.gerenciadorDeAluguel = gerenciadorDeAluguel;
         this.gerenciadorDeAgencia = gerenciadorDeAgencia;
+        this.gerenciadorDeCliente = gerenciadorDeCliente;
+        this.gerenciadorDeVeiculo = gerenciadorDeVeiculo;
     }
 
     @Override
     public void acao() {
         String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
-        //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
-        TipoCliente tipoCliente = new TipoCliente(PF);
-        Cliente cliente = new Cliente("teste", idCliente, tipoCliente);
-        String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
-        //veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
-        TipoVeiculo tipoVeiculo = new TipoVeiculo(TipoVeiculoEnum.CAMINHAO);
-        Veiculo veiculo = new Veiculo(placa, "modelo", "fabricante", tipoVeiculo);
+        Cliente cliente = gerenciadorDeCliente.buscarClientePorId(idCliente);
+        boolean veiculoDisponivel = false;
+        String placa;
+        Veiculo veiculo;
+        placa = CapturadorDeEntrada.capturarString("Placa do veículo");
+        veiculo = gerenciadorDeVeiculo.buscarVeiculoPelaPlaca(placa);
+        if (veiculo.isDisponível())
+            veiculoDisponivel = true;
+        while (!veiculoDisponivel) {
+            System.out.println("Veículo indisponível.");
+            placa = CapturadorDeEntrada.capturarString("Placa do veículo");
+            veiculo = gerenciadorDeVeiculo.buscarVeiculoPelaPlaca(placa);
+            if (veiculo.isDisponível())
+                veiculoDisponivel = true;
+        }
         String agenciaRetiradaId = "";
         boolean existeAgencia = false;
         while (!existeAgencia) {
@@ -43,7 +58,6 @@ public class MenuNovoAluguel extends MenuAbstrato{
            if(!existeAgencia)
                System.out.println("Agência informada não existe. Tente novamente.");
        }
-
        Agencia agenciaRetirada = gerenciadorDeAgencia.buscarAgenciaPorNome(agenciaRetiradaId);
        existeAgencia = false;
         String agenciaDevolucaoId = "";
@@ -53,7 +67,6 @@ public class MenuNovoAluguel extends MenuAbstrato{
            if(!existeAgencia)
                System.out.println("Agência informada não existe. Tente novamente.");
        }
-
        Agencia agenciaDevolucao = gerenciadorDeAgencia.buscarAgenciaPorNome(agenciaDevolucaoId);
        boolean ok = false;
        Integer dia, mes, ano, hora, minuto;
@@ -88,8 +101,8 @@ public class MenuNovoAluguel extends MenuAbstrato{
                ok = false; }
        } while (!ok);
        Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, dataDevolucao);
-       //aluguel.setValorTotal(gerenciadorDeAluguel.calculaTotalAluguel(dataRetirada, dataDevolucao, cliente.getTipoCliente(), veiculo.getTipoveiculo()));
-       aluguel.setValorTotal(gerenciadorDeAluguel.calculaTotalAluguel(dataRetirada, dataDevolucao, tipoCliente, veiculo.getTipoveiculo()));
+       aluguel.setValorTotal(gerenciadorDeAluguel.calculaTotalAluguel(dataRetirada, dataDevolucao, cliente.getTipoCliente(), veiculo.getTipo().getTarifa()));
+       veiculo.setDisponível(false);
        System.out.println("Aluguel iniciado com sucesso.");
        gerenciadorDeAluguel.imprimirComprovante(aluguel);
 

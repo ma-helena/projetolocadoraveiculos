@@ -17,7 +17,7 @@ public class Aluguel implements Entidade{
     private BigDecimal valorTotal;
 
     public Aluguel( Cliente cliente, Veiculo veiculo, Agencia agenciaRetirada, Agencia agenciaDevolucao, LocalDateTime dataRetirada, LocalDateTime dataDevolucao) {
-        this.id = UUID.randomUUID(); // geração de ids unicos
+        this.id = UUID.randomUUID();
         this.cliente = cliente;
         this.veiculo = veiculo;
         this.agenciaRetirada = agenciaRetirada;

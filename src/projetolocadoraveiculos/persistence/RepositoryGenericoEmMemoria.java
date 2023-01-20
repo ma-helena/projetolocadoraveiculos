@@ -16,12 +16,6 @@ public class RepositoryGenericoEmMemoria<T extends Entidade>  implements Reposit
 
     @Override
     public void salvar(T entidade) {
-//        Cliente clienteEncontrado = this.buscarPeloId(cliente.getDocumento());
-//        if (clienteEncontrado != null) {
-//            remover(clienteEncontrado);
-//        }
-//        this.clientes.add(cliente);
-
         this.entidades.put(entidade.getId(), entidade);
     }
 

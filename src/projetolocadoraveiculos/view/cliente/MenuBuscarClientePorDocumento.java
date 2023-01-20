@@ -5,21 +5,21 @@ import projetolocadoraveiculos.model.Cliente;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
-public class MenuBuscarClientePorNome extends MenuAbstrato {
+public class MenuBuscarClientePorDocumento extends MenuAbstrato {
     private final GerenciadorDeCliente gerenciadorDeCliente;
-    public MenuBuscarClientePorNome(GerenciadorDeCliente gerenciadorDeCliente) {
-        super("Buscar cliente por nome");
+    public MenuBuscarClientePorDocumento(GerenciadorDeCliente gerenciadorDeCliente) {
+        super("Buscar cliente por documento");
 
         this.gerenciadorDeCliente = gerenciadorDeCliente;
     }
     @Override
     public void acao() {
-        String nome=  CapturadorDeEntrada.capturarString("nome do cliente buscado");
-        if ((!gerenciadorDeCliente.existeCliente(nome))){
-            System.out.println("Não existe cliente com o nome: "+ nome);
+        String documento=  CapturadorDeEntrada.capturarString("Documento do cliente buscado");
+        if ((!gerenciadorDeCliente.existeCliente(documento))){
+            System.out.println("Não existe cliente com o documento: "+ documento);
            return;
         }
-        Cliente cliente = gerenciadorDeCliente.buscarClientePorNome(nome);
+        Cliente cliente = gerenciadorDeCliente.buscarClientePorId(documento);
         System.out.println("Cliente encontrado " + cliente);
     }
 

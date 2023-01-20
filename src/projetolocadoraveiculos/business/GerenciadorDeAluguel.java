@@ -8,6 +8,7 @@ import projetolocadoraveiculos.persistence.AluguelRepository;
 import javax.sound.midi.Soundbank;
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,16 +30,16 @@ public class GerenciadorDeAluguel {
         return novoAluguel;
     }
 
+
     public List<Aluguel> listarTodos(){
         return aluguelRepository.todos();
     }
 
-    public BigDecimal calculaTotalAluguel(LocalDateTime dataRetirada, LocalDateTime dataDevolucao, TipoCliente tipoCliente, TipoVeiculo tipoVeiculo)
+    public BigDecimal calculaTotalAluguel(LocalDateTime dataRetirada, LocalDateTime dataDevolucao, TipoCliente tipoCliente, BigDecimal tarifa)
     {
         BigDecimal totalAluguel = BigDecimal.valueOf(0);
         Duration duration = Duration.between(dataRetirada, dataDevolucao);
         double periodo = Math.ceil((double)duration.getSeconds()/86400);
-        BigDecimal tarifa = new BigDecimal(150);
         totalAluguel = BigDecimal.valueOf(periodo).multiply(tarifa);
         BigDecimal desconto = new BigDecimal(10);
         int diasDesconto = 10;
@@ -58,20 +59,21 @@ public class GerenciadorDeAluguel {
         System.out.println("Data Retirada: " + aluguel.getDataRetirada());
         System.out.println("Data Devolução: " + aluguel.getDataDevolucao());
         System.out.println("Número de Diárias: " + Math.ceil((double)duration.getSeconds()/86400));
-        System.out.println("Tarifa: R$150");
+        System.out.println("Tarifa: " + aluguel.getVeiculo().getTipo().getTarifa());
         System.out.println("\t___________________________________\t");
         System.out.println("Valor Total R$: " + aluguel.getValorTotal());
         System.out.println("\n\n");
     }
 
-    //private boolean checarDisponibilidade(Veiculo veiculo)
-    //{
-    //    return veiculoRepository.buscarPeloId(veiculo.getDisponivel());
-    //}
+    public void imprimirComprovanteDevolucao(Veiculo veiculo){
+        System.out.println("\t----------------------------------\t");
+        System.out.println("\t\tComprovante de Devolução\t\t");
+        System.out.println("\t----------------------------------\t");
+        System.out.println("Data Devolução: " + LocalDate.now());
+        System.out.println("Placa do Veículo: " + veiculo.getPlaca());
+        System.out.println("Volte sempre!!");
+        System.out.println("\t___________________________________\t");
+        System.out.println("\n\n");
+    }
 
-    //BigDecimal calcularValorAluguel(Aluguel aluguel)
-    //{
-    //    cliente.getTipoCliente()
-    //}
-
-}
+  }
