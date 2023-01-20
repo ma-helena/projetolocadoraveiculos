@@ -1,7 +1,5 @@
 package projetolocadoraveiculos.model;
 
-import java.util.Collection;
-
 public class Veiculo implements Entidade {
     private String placa;
     private String modelo;
@@ -14,13 +12,8 @@ public class Veiculo implements Entidade {
         this.placa = placa;
         this.modelo = modelo;
         this.fabricante = fabricante;
-<<<<<<< Updated upstream
-        this.disponivel = disponivel;
-        this.tipoveiculo = tipoveiculo;
-=======
         this.tipo = tipo;
         this.disponível = true;
->>>>>>> Stashed changes
     }
 
 
@@ -40,8 +33,6 @@ public class Veiculo implements Entidade {
     public String getModelo() {
         return modelo;
     }
-<<<<<<< Updated upstream
-=======
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
@@ -81,5 +72,4 @@ public class Veiculo implements Entidade {
                 ", tipo=" + tipo +
                 '}';
     }
->>>>>>> Stashed changes
 }

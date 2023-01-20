@@ -1,13 +1,8 @@
 package projetolocadoraveiculos;
 
-<<<<<<< Updated upstream
-=======
 import projetolocadoraveiculos.business.*;
 import projetolocadoraveiculos.model.Agencia;
->>>>>>> Stashed changes
-import projetolocadoraveiculos.persistence.AgenciaEmMemoriaRepository;
-import projetolocadoraveiculos.persistence.AgenciaRepository;
-import projetolocadoraveiculos.persistence.ClienteEmMemoriaRepository;
+import projetolocadoraveiculos.persistence.*;
 import projetolocadoraveiculos.view.Menu;
 import projetolocadoraveiculos.view.MenuGeralFactory;
 import projetolocadoraveiculos.view.agencia.MenuAgenciasFactory;
@@ -18,18 +13,10 @@ import java.math.BigDecimal;
 
 //incompleto - precisa ser trabalhado
 public class LocatorCar {
+
     public static void main(String[] args) {
+
         AgenciaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
-<<<<<<< Updated upstream
-
-
-    }
-    ClienteEmMemoriaRepository clienteEmMemoriaRepository = new ClienteEmMemoriaRepository();
-
-//    MenuAgenciasFactory menuAgenciasFactory = new MenuAgenciasFactory(gerenciadorDeAgencia);
-//    Menu menuGeral = new MenuGeralFactory(menuAgenciasFactory).create();
-//    //menuGeral.agir();
-=======
         ClienteRepository clienteRepository = new ClienteEmMemoriaRepository();
         VeiculoRepository veiculoRepository = new VeiculoEmMemoriaRepository();
 
@@ -68,6 +55,4 @@ public class LocatorCar {
         //gerenciadorTipoVeiculo.adicionarTipoVeiculo("Tipo 3 - Caminhão - 200,00", BigDecimal.valueOf(200));
         return gerenciadorTipoVeiculo;
     }
-
->>>>>>> Stashed changes
 }

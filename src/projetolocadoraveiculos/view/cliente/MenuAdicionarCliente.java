@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class MenuAdicionarCliente extends MenuAbstrato {
 
+
     private final GerenciadorDeCliente gerenciadorDeCliente;
     private final GerenciadorTipoCliente gerenciadorTipoCliente;
 
@@ -35,8 +36,8 @@ public class MenuAdicionarCliente extends MenuAbstrato {
 
         List<String> listaDescricaoDeTodosOsTiposDeClientes =
                 todosTiposClientes.stream()
-                .map(TipoCliente::getId)
-                .collect(Collectors.toList());
+                        .map(TipoCliente::getId)
+                        .collect(Collectors.toList());
 
         String descricaoTipoDeCliente = CapturadorDeEntrada.capturarStringDentreAsPossiveis("tipo de cliente", listaDescricaoDeTodosOsTiposDeClientes);
         TipoCliente tipoCliente = gerenciadorTipoCliente.buscarTipoCliente(descricaoTipoDeCliente);

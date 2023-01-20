@@ -20,31 +20,17 @@ public abstract class MenuAbstrato  implements Menu{
     public final void agir() {
         exibirComSeparador();
         acao();
-<<<<<<< Updated upstream
-
-
-    }
-
-    protected  void acao() {
-    }
-=======
     }
 
     protected abstract void acao();
->>>>>>> Stashed changes
 
     private void exibirComSeparador() {
+        exibirSeparador();
         exibir();
-        exibirComSeparador();
+        exibirSeparador();
     }
 
-<<<<<<< Updated upstream
-   private void exibirSeparador(){
-       System.out.println("xxxxxxxxxxxxxx");
-   }
-=======
     private void exibirSeparador() {
         System.out.println("------------------------------------------");
     }
->>>>>>> Stashed changes
 }
