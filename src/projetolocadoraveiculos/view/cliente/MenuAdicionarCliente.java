@@ -12,7 +12,10 @@ import java.util.stream.Collectors;
 
 public class MenuAdicionarCliente extends MenuAbstrato {
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     private final GerenciadorDeCliente gerenciadorDeCliente;
     private final GerenciadorTipoCliente gerenciadorTipoCliente;
 
@@ -36,8 +39,13 @@ public class MenuAdicionarCliente extends MenuAbstrato {
 
         List<String> listaDescricaoDeTodosOsTiposDeClientes =
                 todosTiposClientes.stream()
+<<<<<<< Updated upstream
                         .map(TipoCliente::getId)
                         .collect(Collectors.toList());
+=======
+                .map(TipoCliente::getId)
+                .collect(Collectors.toList());
+>>>>>>> Stashed changes
 
         String descricaoTipoDeCliente = CapturadorDeEntrada.capturarStringDentreAsPossiveis("tipo de cliente", listaDescricaoDeTodosOsTiposDeClientes);
         TipoCliente tipoCliente = gerenciadorTipoCliente.buscarTipoCliente(descricaoTipoDeCliente);

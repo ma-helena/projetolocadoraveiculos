@@ -2,7 +2,13 @@ package projetolocadoraveiculos.model;
 
 public class TipoCliente {
     private String descricao;
+<<<<<<< Updated upstream
     private String desconto;
+=======
+
+    private BigDecimal desconto;
+
+>>>>>>> Stashed changes
     private int quantidadeDiasParaDesconto;
 
     public TipoCliente(String descricao, String desconto, int quantidadeDiasParaDesconto) {
@@ -11,11 +17,19 @@ public class TipoCliente {
         this.quantidadeDiasParaDesconto = quantidadeDiasParaDesconto;
     }
 
+<<<<<<< Updated upstream
+=======
+    @Override
+    public String getId() {
+        return descricao;
+    }
+
+>>>>>>> Stashed changes
     @Override
     public String toString() {
         return "TipoCliente{" +
                 "descricao='" + descricao + '\'' +
-                ", desconto='" + desconto + '\'' +
+                ", desconto=" + desconto +
                 ", quantidadeDiasParaDesconto=" + quantidadeDiasParaDesconto +
                 '}';
     }

@@ -1,14 +1,24 @@
 package projetolocadoraveiculos.business;
 
+<<<<<<< Updated upstream
+=======
+import java.util.List;
+
+>>>>>>> Stashed changes
 import projetolocadoraveiculos.exception.RegistroDuplicadoException;
 import projetolocadoraveiculos.model.TipoVeiculo;
 import projetolocadoraveiculos.model.Veiculo;
 import projetolocadoraveiculos.persistence.VeiculoRepository;
 
+<<<<<<< Updated upstream
 import java.util.List;
 
 public class GerenciadorDeVeiculo {
 
+=======
+public class GerenciadorDeVeiculo {
+    
+>>>>>>> Stashed changes
     private final VeiculoRepository veiculoRepository;
 
     public GerenciadorDeVeiculo(VeiculoRepository veiculoRepository) {

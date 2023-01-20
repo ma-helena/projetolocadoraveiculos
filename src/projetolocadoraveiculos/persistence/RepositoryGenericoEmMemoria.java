@@ -5,8 +5,12 @@ import projetolocadoraveiculos.model.Entidade;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< Updated upstream
 public class RepositoryGenericoEmMemoria<T extends Entidade> implements RepositoryGenerico<T> {
 
+=======
+public class RepositoryGenericoEmMemoria<T extends Entidade>  implements RepositoryGenerico <T> {
+>>>>>>> Stashed changes
     protected Map<String, T> entidades;
 
     public RepositoryGenericoEmMemoria() {
@@ -41,5 +45,8 @@ public class RepositoryGenericoEmMemoria<T extends Entidade> implements Reposito
     public List<T> todos() {
         return new ArrayList<>(entidades.values());
     }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

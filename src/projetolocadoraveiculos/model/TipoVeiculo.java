@@ -2,8 +2,13 @@ package projetolocadoraveiculos.model;
 
 import java.math.BigDecimal;
 
+<<<<<<< Updated upstream
 public class TipoVeiculo implements Entidade {
 
+=======
+public class TipoVeiculo {
+    
+>>>>>>> Stashed changes
     private String descricao;
 
     private BigDecimal tarifa;
@@ -13,7 +18,11 @@ public class TipoVeiculo implements Entidade {
         this.tarifa = tarifa;
     }
 
+<<<<<<< Updated upstream
     //@Override
+=======
+    @Override
+>>>>>>> Stashed changes
     public String getId() {
         return descricao;
     }
