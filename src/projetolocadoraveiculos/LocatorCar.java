@@ -1,7 +1,5 @@
 package projetolocadoraveiculos;
 
-import java.math.BigDecimal;
-
 import projetolocadoraveiculos.business.GerenciadorDeAgencia;
 import projetolocadoraveiculos.business.GerenciadorDeAluguel;
 import projetolocadoraveiculos.business.GerenciadorDeCliente;
@@ -31,7 +29,7 @@ public class LocatorCar {
 
         MenuVeiculosFactory menuVeiculosFactory = new MenuVeiculosFactory(gerenciadorDeVeiculo);
         MenuAgenciasFactory menuAgenciasFactory = new MenuAgenciasFactory(gerenciadorDeAgencia);
-        MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel, gerenciadorDeAgencia);
+        MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel, gerenciadorDeAgencia, gerenciadorDeCliente, gerenciadorDeVeiculo);
         MenuClientesFactory menuClientesFactory = new MenuClientesFactory(gerenciadorDeCliente);
 
         Menu menuGeral = new MenuGeralFactory(

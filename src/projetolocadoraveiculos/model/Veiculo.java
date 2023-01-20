@@ -23,6 +23,7 @@ public class Veiculo implements Entidade {
         return placa;
     }
 
+
     public String getPlaca() {
         return placa;
     }
@@ -62,6 +63,8 @@ public class Veiculo implements Entidade {
     public void setTipo(TipoVeiculo tipo) {
         this.tipo = tipo;
     }
+
+
 
     @Override
     public String toString() {

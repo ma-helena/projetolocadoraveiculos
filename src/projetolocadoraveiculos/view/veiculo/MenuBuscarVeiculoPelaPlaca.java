@@ -24,10 +24,6 @@ public class MenuBuscarVeiculoPelaPlaca extends MenuAbstrato {
             System.out.println("Não existe veiculo com a placa " + placa);
             return;
         }
-
-        //List<Veiculo> veiculos = gerenciadorDeVeiculo.buscarVeiculoPelaPlaca(placa);
         System.out.println("Veiculo encontrado:");
-       // System.out.println(veiculos);
-
     }
 }

@@ -16,17 +16,6 @@ public class VeiculoEmMemoriaRepository extends RepositoryGenericoEmMemoria<Veic
         }
         return veiculos;
     }
-/*
-    @Override
-    public Veiculo buscarVeiculoPelaPlaca(String placa) {
-        Veiculo veiculos = new Veiculo;
-        for (Veiculo veiculo : entidades.values()) {
-            if (veiculo.getPlaca().contains(placa)) {
-                veiculos.add(veiculo);
-            }
-        }
-        return veiculos;
-    }*/
 
     @Override
     public List<Veiculo> buscaPeloFabricante(String nome) {
