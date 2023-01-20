@@ -3,28 +3,32 @@ package projetolocadoraveiculos.model;
 import java.math.BigDecimal;
 
 public class TipoCliente implements Entidade{
-    private String descricao;
+    private TipoClienteEnum tipo;
     private BigDecimal desconto;
     private int quantidadeDiasParaDesconto;
 
-    public TipoCliente(String descricao, BigDecimal desconto, int quantidadeDiasParaDesconto) {
-        this.descricao = descricao;
-        this.desconto = desconto;
-        this.quantidadeDiasParaDesconto = quantidadeDiasParaDesconto;
+    public TipoCliente(TipoClienteEnum tipo) {
+        this.tipo = tipo;
+
+        if (tipo == TipoClienteEnum.PF) {
+            this.desconto = BigDecimal.valueOf(0.05);
+            this.quantidadeDiasParaDesconto = 5;
+        }
+        if (tipo == TipoClienteEnum.PJ) {
+            this.desconto = BigDecimal.valueOf(0.10);
+            this.quantidadeDiasParaDesconto = 3;
+        }
+
     }
 
 
     @Override
     public String toString() {
-        return "TipoCliente{" +
-                "descricao='" + descricao + '\'' +
-                ", desconto='" + desconto + '\'' +
-                ", quantidadeDiasParaDesconto=" + quantidadeDiasParaDesconto +
-                '}';
+        return "TipoCliente " + tipo.toString();
     }
 
     @Override
     public String getId() {
-        return descricao;
+        return tipo.toString();
     }
 }
