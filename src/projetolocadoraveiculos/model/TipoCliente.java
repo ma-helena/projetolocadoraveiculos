@@ -31,7 +31,7 @@ public class TipoCliente implements Entidade{
 
     @Override
     public String toString() {
-        return "TipoCliente " + tipo.toString();
+        return tipo.toString();
     }
 
     @Override

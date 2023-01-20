@@ -21,10 +21,8 @@ public class Agencia implements Entidade {
 
     @Override
     public String toString() {
-        return "Agencia{" +
-                "nome='" + nome + '\'' +
-                ", logradouro='" + logradouro + '\'' +
-                '}';
+        return "\nNome Agência: " + nome +
+                "\nLogradouro: " + logradouro + "\n";
     }
 
     public String getLogradouro() {

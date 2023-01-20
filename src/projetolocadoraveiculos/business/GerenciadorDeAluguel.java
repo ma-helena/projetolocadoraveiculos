@@ -51,6 +51,7 @@ public class GerenciadorDeAluguel {
     public void imprimirComprovante(Aluguel aluguel){
         BigDecimal totalAluguel = BigDecimal.valueOf(0);
         Duration duration = Duration.between(aluguel.getDataRetirada(), aluguel.getDataDevolucao());
+        System.out.println("\n");
         System.out.println("\t----------------------------------\t");
         System.out.println("\t\tComprovante de aluguel\t\t");
         System.out.println("\t----------------------------------\t");
@@ -62,7 +63,7 @@ public class GerenciadorDeAluguel {
         System.out.println("Tarifa: " + aluguel.getVeiculo().getTipo().getTarifa());
         System.out.println("\t___________________________________\t");
         System.out.println("Valor Total R$: " + aluguel.getValorTotal());
-        System.out.println("\n\n");
+        System.out.println("\n");
     }
 
     public void imprimirComprovanteDevolucao(Veiculo veiculo){

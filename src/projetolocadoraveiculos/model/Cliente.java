@@ -30,6 +30,6 @@ public class Cliente implements Entidade {
 
     @Override
     public String toString() {
-        return "Cliente " + nome + ", documento: " + documento + ", tipoCliente:" + tipoCliente.toString();
+        return "\nCliente " + nome + "\nDocumento: " + documento + "\nTipo de Cliente: " + tipoCliente.toString() + "\n";
     }
 }

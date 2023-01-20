@@ -68,12 +68,12 @@ public class Veiculo implements Entidade {
 
     @Override
     public String toString() {
-        return "Veiculo{" +
-                "placa='" + placa + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", fabricante='" + fabricante + '\'' +
-                ", disponível=" + disponível +
-                ", tipo=" + tipo +
-                '}';
+        return "\nVeiculo:" +
+                "\nPlaca: " + placa +
+                "\nModelo: " + modelo +
+                "\nFabricante: " + fabricante +
+                "\nDisponível: " + disponível +
+                "\nTipo: " + tipo.getDescricao() +
+                "\nTarifa: R$" + tipo.getTarifa() + '\n';
     }
 }

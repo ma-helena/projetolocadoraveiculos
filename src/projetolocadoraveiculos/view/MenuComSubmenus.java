@@ -19,7 +19,7 @@ public class MenuComSubmenus extends MenuAbstrato {
 
     public void exibirSubmenus(){
         for (int i = 0; i < submenus.size() ; i++) {
-            System.out.printf("%s", i);
+            System.out.printf("%s. ", i);
             Menu menu = submenus.get(String.valueOf(i));
             menu.exibir();
             
