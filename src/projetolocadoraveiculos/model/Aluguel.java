@@ -30,24 +30,49 @@ public class Aluguel implements Entidade{
         return id.toString();
     }
 
-    public BigDecimal calculaTotalAluguel(LocalDateTime dataRetirada, LocalDateTime dataDevolucao,  TipoCliente tipoCliente, TipoVeiculo tipoVeiculo)
-    {
-        BigDecimal totalAluguel = BigDecimal.valueOf(0);
-        Duration duration = Duration.between(dataRetirada, dataDevolucao);
-        return (totalAluguel);
+    public Cliente getCliente() {
+        return cliente;
     }
 
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public Agencia getAgenciaRetirada() {
+        return agenciaRetirada;
+    }
+
+    public Agencia getAgenciaDevolucao() {
+        return agenciaDevolucao;
+    }
+
+    public LocalDateTime getDataRetirada() {
+        return dataRetirada;
+    }
+
+    public LocalDateTime getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
 
     @Override
     public String toString() {
         return "Aluguel" +
-                "\nid: " + id +
-                ", \ncliente: " + cliente +
-                ", \nveiculo: " + veiculo +
-                ", \nagenciaRetirada: " + agenciaRetirada +
-                ", \nagenciaDevolucao: " + agenciaDevolucao +
-                ", \ndataRetirada: " + dataRetirada +
-                ", \ndataDevolucao: " + dataDevolucao +
+                "\nID: " + id +
+                ", \nCliente: " + cliente +
+                ", \nVeículo: " + veiculo +
+                ", \nAgência Retirada: " + agenciaRetirada +
+                ", \nAgência Devolução: " + agenciaDevolucao +
+                ", \nData Retirada: " + dataRetirada +
+                ", \nData Devolucao: " + dataDevolucao +
+                ", \nValor Total: " + valorTotal +
                 '}';
     }
 }
