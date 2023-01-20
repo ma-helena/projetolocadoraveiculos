@@ -34,5 +34,9 @@ public class GerenciadorDeAgencia {
     public  List<Agencia> listarAgencias(){
         return agenciaRepository.todos();
     }
+    public void removerAgencia(Agencia agencia){
+        agenciaRepository.remover(agencia);
+    }
+
 
 }

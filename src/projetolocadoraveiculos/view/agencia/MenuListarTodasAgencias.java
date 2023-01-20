@@ -2,15 +2,14 @@ package projetolocadoraveiculos.view.agencia;
 
 import projetolocadoraveiculos.business.GerenciadorDeAgencia;
 import projetolocadoraveiculos.model.Agencia;
-import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
 import java.util.List;
 
 
-public class MenuListarAgencia extends MenuAbstrato {
+public class MenuListarTodasAgencias extends MenuAbstrato {
     private final GerenciadorDeAgencia gerenciadorDeAgencia;
-    public MenuListarAgencia(GerenciadorDeAgencia gerenciadorDeAgencia) {
+    public MenuListarTodasAgencias(GerenciadorDeAgencia gerenciadorDeAgencia) {
         super("Listar as agências do catálogo");
 
         this.gerenciadorDeAgencia = gerenciadorDeAgencia;

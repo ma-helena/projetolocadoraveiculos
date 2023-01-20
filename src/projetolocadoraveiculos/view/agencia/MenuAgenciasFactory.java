@@ -22,8 +22,11 @@ public class MenuAgenciasFactory implements MenuFactory {
         Menu menuBuscarAgenciaPorNome = new MenuBuscarAgenciaPorNome (gerenciadorDeAgencia);
         menuAgencias.adicionarSubmenu(menuBuscarAgenciaPorNome);
 
-        Menu menuListarAgencia = new MenuListarAgencia (gerenciadorDeAgencia);
+        Menu menuListarAgencia = new MenuListarTodasAgencias(gerenciadorDeAgencia);
         menuAgencias.adicionarSubmenu(menuListarAgencia);
+
+        Menu menuAlterarAgencia = new MenuAlterarAgencia(gerenciadorDeAgencia);
+        menuAgencias.adicionarSubmenu(menuAlterarAgencia);
 
 
         return menuAgencias;
