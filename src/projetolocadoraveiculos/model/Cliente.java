@@ -19,6 +19,10 @@ public class Cliente implements Entidade {
         return nome;
     }
 
+    public TipoCliente getTipoCliente() {
+        return tipoCliente;
+    }
+
     @Override
     public String getId() {
         return documento;
@@ -26,10 +30,6 @@ public class Cliente implements Entidade {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nome='" + nome + '\'' +
-                ", documento='" + documento + '\'' +
-                ", tipoCliente=" + tipoCliente +
-                '}';
+        return "Cliente " + nome + ", documento: " + documento + ", tipoCliente:" + tipoCliente.toString();
     }
 }

@@ -6,7 +6,6 @@ import projetolocadoraveiculos.business.GerenciadorDeAgencia;
 import projetolocadoraveiculos.business.GerenciadorDeAluguel;
 import projetolocadoraveiculos.business.GerenciadorDeCliente;
 import projetolocadoraveiculos.business.GerenciadorDeVeiculo;
-import projetolocadoraveiculos.business.GerenciadorTipoCliente;
 import projetolocadoraveiculos.business.GerenciadorTipoVeiculo;
 import projetolocadoraveiculos.persistence.AgenciaEmMemoriaRepository;
 import projetolocadoraveiculos.persistence.AgenciaRepository;
@@ -18,7 +17,6 @@ import projetolocadoraveiculos.view.aluguel.MenuAluguelFactory;
 import projetolocadoraveiculos.view.cliente.MenuClientesFactory;
 import projetolocadoraveiculos.view.veiculo.MenuVeiculosFactory;
 
-//incompleto - precisa ser trabalhado
 public class LocatorCar {
     public static void main(String[] args) {
         AgenciaRepository agenciaRepository = new AgenciaEmMemoriaRepository();
@@ -26,27 +24,27 @@ public class LocatorCar {
         ClienteRepository clienteRepository = new ClienteEmMemoriaRepository();
         VeiculoRepository veiculoRepository = new VeiculoEmMemoriaRepository();
 
-        GerenciadorDeAgencia gerenciadorDeAgencia = new GerenciadorDeAgencia(agenciaRepository);
-        GerenciadorDeAluguel gerenciadorDeAluguel = new GerenciadorDeAluguel(aluguelRepository, agenciaRepository);
-
-        GerenciadorDeCliente gerenciadorDeCliente = new GerenciadorDeCliente(clienteRepository);
         GerenciadorDeVeiculo gerenciadorDeVeiculo = new GerenciadorDeVeiculo(veiculoRepository);
-
-        GerenciadorTipoCliente gerenciadorTipoCliente = inicializarGerenciadorTipoCliente();
         GerenciadorTipoVeiculo gerenciadorTipoVeiculo = inicializarGerenciadorTipoVeiculo();
 
+        MenuVeiculosFactory menuVeiculosFactory = new MenuVeiculosFactory(gerenciadorDeVeiculo, gerenciadorTipoVeiculo);
 
-//        Agencia agencia = gerenciadorDeAgencia.criarAgencia("Ag1", "Jp");
+        GerenciadorDeAgencia gerenciadorDeAgencia = new GerenciadorDeAgencia(agenciaRepository);
+        GerenciadorDeAluguel gerenciadorDeAluguel = new GerenciadorDeAluguel(aluguelRepository, agenciaRepository);
+        GerenciadorDeCliente gerenciadorDeCliente = new GerenciadorDeCliente(clienteRepository);
 
         MenuAgenciasFactory menuAgenciasFactory = new MenuAgenciasFactory(gerenciadorDeAgencia);
         MenuAluguelFactory menuAluguelFactory = new MenuAluguelFactory(gerenciadorDeAluguel, gerenciadorDeAgencia);
-        MenuClientesFactory menuClientesFactory = new MenuClientesFactory(gerenciadorDeCliente, gerenciadorTipoCliente);
-        MenuVeiculosFactory menuVeiculosFactory = new MenuVeiculosFactory(gerenciadorDeVeiculo, gerenciadorTipoVeiculo);
+        MenuClientesFactory menuClientesFactory = new MenuClientesFactory(gerenciadorDeCliente);
 
-        Menu menuGeral = new MenuGeralFactory(menuAgenciasFactory, menuAluguelFactory, menuVeiculosFactory).create();
+        Menu menuGeral = new MenuGeralFactory(
+             menuAgenciasFactory, 
+             menuAluguelFactory, 
+             menuClientesFactory, 
+             menuVeiculosFactory
+        ).create();
+
         menuGeral.agir();
-
-
     }
 
     private static GerenciadorTipoCliente inicializarGerenciadorTipoCliente() {

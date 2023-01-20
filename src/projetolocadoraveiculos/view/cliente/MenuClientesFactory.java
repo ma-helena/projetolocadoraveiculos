@@ -1,29 +1,32 @@
 package projetolocadoraveiculos.view.cliente;
 
 import projetolocadoraveiculos.business.GerenciadorDeCliente;
-import projetolocadoraveiculos.business.GerenciadorTipoCliente;
+import projetolocadoraveiculos.view.Menu;
 import projetolocadoraveiculos.view.MenuComSubmenus;
 import projetolocadoraveiculos.view.MenuFactory;
-import projetolocadoraveiculos.view.Menu;
-
-import java.awt.*;
 
 public class MenuClientesFactory implements MenuFactory {
-
     private final GerenciadorDeCliente gerenciadorDeCliente;
-    private final GerenciadorTipoCliente gerenciadorTipoCliente;
 
-    public MenuClientesFactory(GerenciadorDeCliente gerenciadorDeCliente, GerenciadorTipoCliente gerenciadorTipoCliente) {
+    public MenuClientesFactory(GerenciadorDeCliente gerenciadorDeCliente) {
         this.gerenciadorDeCliente = gerenciadorDeCliente;
-        this.gerenciadorTipoCliente = gerenciadorTipoCliente;
     }
 
     @Override
     public Menu create() {
         MenuComSubmenus menuClientes = new MenuComSubmenus("Menu Clientes");
 
-        Menu menuAdicionarCliente = new MenuAdicionarCliente(gerenciadorDeCliente, gerenciadorTipoCliente);
+        Menu menuAdicionarCliente = new MenuAdicionarCliente(gerenciadorDeCliente);
         menuClientes.adicionarSubmenu(menuAdicionarCliente);
+
+        Menu menuBuscarClientePorNome = new MenuBuscarClientePorNome(gerenciadorDeCliente);
+        menuClientes.adicionarSubmenu(menuBuscarClientePorNome);
+
+        Menu menuListarClientes = new MenuListarTodosClientes(gerenciadorDeCliente);
+        menuClientes.adicionarSubmenu(menuListarClientes);
+
+        Menu menuAlterarCliente = new MenuAlterarCliente(gerenciadorDeCliente);
+        menuClientes.adicionarSubmenu(menuAlterarCliente);
 
         return menuClientes;
     }
