@@ -27,15 +27,15 @@ public class MenuNovoAluguel extends MenuAbstrato{
 
     @Override
     public void acao() {
-       String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
-       //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
+        String idCliente =  CapturadorDeEntrada.capturarString("Documento do cliente");
+        //Cliente cliente = gerenciadorDeCliente.buscarPeloId(idCliente);
         TipoCliente tipoCliente = new TipoCliente(PF);
         Cliente cliente = new Cliente("teste", idCliente, tipoCliente);
-       String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
-       // veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
-       TipoVeiculo tipoVeiculo = new TipoVeiculo("Carro", BigDecimal.valueOf(150));
-        Veiculo veiculo = new Veiculo(placa, "modelo", "fabricante", true, tipoVeiculo);
-       String agenciaRetiradaId = "";
+        String placa =  CapturadorDeEntrada.capturarString("Placa do veículo");
+        //veiculo = gerenciadorDeVeiculo.buscarPeloId(placa);
+        TipoVeiculo tipoVeiculo = new TipoVeiculo(TipoVeiculoEnum.CAMINHAO);
+        Veiculo veiculo = new Veiculo(placa, "modelo", "fabricante", tipoVeiculo);
+        String agenciaRetiradaId = "";
         boolean existeAgencia = false;
         while (!existeAgencia) {
            agenciaRetiradaId = CapturadorDeEntrada.capturarString("Agência de Retirada");
@@ -43,6 +43,7 @@ public class MenuNovoAluguel extends MenuAbstrato{
            if(!existeAgencia)
                System.out.println("Agência informada não existe. Tente novamente.");
        }
+
        Agencia agenciaRetirada = gerenciadorDeAgencia.buscarAgenciaPorNome(agenciaRetiradaId);
        existeAgencia = false;
         String agenciaDevolucaoId = "";
@@ -52,6 +53,7 @@ public class MenuNovoAluguel extends MenuAbstrato{
            if(!existeAgencia)
                System.out.println("Agência informada não existe. Tente novamente.");
        }
+
        Agencia agenciaDevolucao = gerenciadorDeAgencia.buscarAgenciaPorNome(agenciaDevolucaoId);
        boolean ok = false;
        Integer dia;
@@ -89,10 +91,10 @@ public class MenuNovoAluguel extends MenuAbstrato{
                System.out.println("Data/Horário informado não é valido. Digite novamente");
                ok = false; }
        } while (!ok);
-       Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, dataDevolucao);
+       //Aluguel aluguel = gerenciadorDeAluguel.criarAluguel(cliente, veiculo, agenciaRetirada, agenciaDevolucao, dataRetirada, dataDevolucao);
 
        System.out.println("Aluguel iniciado com sucesso.");
-       System.out.println(aluguel);
+       //System.out.println(aluguel);
 
     }
 }

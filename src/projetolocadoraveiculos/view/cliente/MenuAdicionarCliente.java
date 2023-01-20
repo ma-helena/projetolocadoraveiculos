@@ -6,8 +6,6 @@ import projetolocadoraveiculos.model.TipoCliente;
 import projetolocadoraveiculos.view.CapturadorDeEntrada;
 import projetolocadoraveiculos.view.MenuAbstrato;
 
-import java.util.Objects;
-
 public class MenuAdicionarCliente extends MenuAbstrato{
    private final GerenciadorDeCliente gerenciadorDeCliente;
 
